@@ -174,3 +174,41 @@ Send retrieved context to Gemini
         ↓
 Generate the final answer
 ```
+
+
+
+
+
+
+
+## Project Structure
+
+```text
+Gemini_chatbot/
+│
+├── chatbot_level1.py
+├── chatbot_level1_memory.py
+├── chatbot_level2_tools.py
+├── chatbot_level3_rag.py
+├── sample_data/
+│   └── policy.txt
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## Important Notes
+
+- The real `.env` file is kept private and is not uploaded to GitHub.
+- The `.env.example` file only shows the required API key format.
+- `chat_history.json` stores chatbot memory locally.
+- `calendar_events.json` stores local calendar events.
+- The `drafts` folder stores local email drafts.
+- The `chroma_db` folder stores the local vector database.
+- Generated files and private datasets are excluded through `.gitignore`.
+- The email tool does not send real emails.
+- The calendar tool does not update Google Calendar.
+- The database tool allows only safe `SELECT` queries.
+- Text-based PDFs work best with the current RAG chatbot.
+- Image-based or scanned PDFs may require OCR.
