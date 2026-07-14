@@ -101,3 +101,76 @@ Add a calendar event for tomorrow
 ```
 
 The email tool only creates local drafts, and the calendar tool only stores local events. It does not send real emails or update Google Calendar.
+
+
+
+## Level 3: Basic RAG Chatbot
+
+This version adds Retrieval-Augmented Generation (RAG).
+
+The chatbot can:
+
+- Read TXT, Markdown, and PDF files
+- Split large documents into overlapping chunks
+- Create embeddings for each chunk
+- Store embeddings in a Chroma vector database
+- Convert the user question into an embedding
+- Retrieve the most relevant chunks using similarity search
+- Send only the retrieved context to Gemini
+- Generate answers based on the uploaded document
+
+Run it using:
+
+```bash
+python chatbot_level3_rag.py
+```
+
+Inside the chatbot, type:
+
+```text
+upload
+```
+
+Then enter the file path:
+
+```text
+sample_data/policy.txt
+```
+
+Example questions:
+
+```text
+How many sick leaves do employees get?
+
+How long does refund processing take?
+
+What is the cancellation policy?
+
+What is the laptop replacement policy?
+```
+
+The first questions should be answered from the document. If the answer is not present, the chatbot should say that it could not find the information.
+
+### RAG Flow
+
+```text
+Upload document
+        ↓
+Extract text
+        ↓
+Split text into chunks
+        ↓
+Create embeddings
+        ↓
+Store chunks in Chroma
+        ↓
+User asks a question
+        ↓
+Create question embedding
+        ↓
+Retrieve relevant chunks
+        ↓
+Send retrieved context to Gemini
+        ↓
+Generate the final answer
+```
