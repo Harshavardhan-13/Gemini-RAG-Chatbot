@@ -1,0 +1,8 @@
+Employees get 10 sick leaves per year.
+Employees must inform their manager before taking sick leave.
+
+Refunds are processed within 5 business days.
+Customers must submit refund requests through the support portal.
+
+Appointments can be cancelled up to 24 hours before the scheduled time.
+Late cancellations may not be eligible for a refund.
