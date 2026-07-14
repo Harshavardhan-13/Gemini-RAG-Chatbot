@@ -212,3 +212,110 @@ Gemini_chatbot/
 - The database tool allows only safe `SELECT` queries.
 - Text-based PDFs work best with the current RAG chatbot.
 - Image-based or scanned PDFs may require OCR.
+
+
+
+
+## Testing
+
+### Test Level 1
+
+Run:
+
+```bash
+python chatbot_level1.py
+```
+
+Try:
+
+```text
+Hello
+
+Explain what an LLM is in simple words
+
+exit
+```
+
+### Test Level 1.5 Memory
+
+Run:
+
+```bash
+python chatbot_level1_memory.py
+```
+
+Try:
+
+```text
+My name is Vru
+
+What is my name?
+
+history
+
+exit
+```
+
+Run the chatbot again and ask:
+
+```text
+What is my name?
+```
+
+The chatbot should reload the saved memory.
+
+### Test Level 2 Tools
+
+Run:
+
+```bash
+python chatbot_level2_tools.py
+```
+
+Try:
+
+```text
+Calculate 245 * 17
+
+What is the weather in Seattle?
+
+Create an email draft to test@example.com
+
+Add a calendar event for tomorrow
+```
+
+To test the database tool, provide a CSV file path when the program starts.
+
+### Test Level 3 RAG
+
+Run:
+
+```bash
+python chatbot_level3_rag.py
+```
+
+Type:
+
+```text
+upload
+```
+
+Then provide:
+
+```text
+sample_data/policy.txt
+```
+
+Try:
+
+```text
+How many sick leaves do employees get?
+
+How long does refund processing take?
+
+What is the cancellation policy?
+
+What is the laptop replacement policy?
+```
+
+The chatbot should answer the first questions from the document and say when information is not present.
