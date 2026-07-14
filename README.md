@@ -30,6 +30,25 @@ python -m pip install -r requirements.txt
 ```
 
 ## Create a local .env file and add:
-```bash
+```env
 GOOGLE_API_KEY=your_google_api_key_here
+```
+
+## Level 1.5: Chatbot with Memory
+
+This version adds memory to the chatbot.
+
+It can:
+
+- Store the conversation in `chat_history`
+- Remember earlier messages during the same session
+- Save the conversation in `chat_history.json`
+- Reload previous conversations when the chatbot starts again
+- Show saved conversations using the `history` command
+- Clear saved memory using the `clear` command
+
+Run it using:
+
+```bash
+python chatbot_level1_memory.py
 ```
