@@ -1,5 +1,4 @@
 import os
-import uuid
 from pathlib import Path
 
 import chromadb
@@ -124,8 +123,17 @@ def index_file(file_path: str) -> str:
 
     chunks = chunk_text(text)
 
+    existing = collection.get(
+        where={"file_name": path.name}
+    )
+
+    existing_ids = existing.get("ids", [])
+
+    if existing_ids:
+        collection.delete(ids=existing_ids)
+
     for chunk_index, chunk in enumerate(chunks):
-        chunk_id = f"{path.name}_{chunk_index}_{uuid.uuid4().hex[:8]}"
+        chunk_id = f"{path.name}_chunk_{chunk_index}"
         embedding = create_embedding(chunk)
 
         collection.upsert(
