@@ -1,0 +1,34 @@
+# API keys and environment variables
+.env
+.env.*
+
+# Keep the safe example environment file
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# macOS files
+.DS_Store
+
+# Chatbot runtime memory
+chat_history.json
+calendar_events.json
+
+# Generated email drafts
+drafts/
+
+# Generated vector database
+chroma_db/
+
+# Local datasets
+hospital_appointment_no_show_5000.csv
+
+# Editor settings
+.vscode/
+.idea/
