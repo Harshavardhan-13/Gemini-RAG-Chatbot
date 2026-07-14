@@ -52,3 +52,52 @@ Run it using:
 ```bash
 python chatbot_level1_memory.py
 ```
+
+## Level 2: Chatbot with Tools
+
+This version adds tool calling to the chatbot.
+
+The chatbot can decide when to use Python functions instead of only answering from the LLM.
+
+Tools included:
+
+- Calculator for accurate math
+- Weather lookup using an external API
+- Date and time lookup
+- CSV file loading into an in-memory SQLite database
+- Safe SQL `SELECT` queries
+- Local email draft creation
+- Local calendar event creation
+- Persistent chat memory
+
+Run it using:
+
+```bash
+python chatbot_level2_tools.py
+```
+
+When the program starts, it asks for a CSV file path.
+
+Enter a CSV path to load it as a database, or press Enter to skip it.
+
+Example:
+
+```text
+hospital_appointment_no_show_5000.csv
+```
+
+Example questions:
+
+```text
+Calculate 245 * 17
+
+What is the weather in Seattle?
+
+What columns are in the database?
+
+Create an email draft to test@example.com
+
+Add a calendar event for tomorrow
+```
+
+The email tool only creates local drafts, and the calendar tool only stores local events. It does not send real emails or update Google Calendar.
