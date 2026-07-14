@@ -6,7 +6,7 @@ The project starts with a basic chatbot and gradually adds memory, tools, databa
 
 ## Level 1: Basic Gemini Chatbot
 
-The Level 1 chatbot can:-
+The Level 1 chatbot can:
 
 - Accept user messages from the terminal
 - Send the message to the Gemini model
