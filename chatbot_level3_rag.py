@@ -150,11 +150,14 @@ def search_documents(question: str, top_k: int = 3) -> list[dict]:
     Searches the vector database and returns the most relevant chunks.
     """
 
+    if collection.count() == 0:
+        return []
+
     question_embedding = create_embedding(question)
 
     results = collection.query(
         query_embeddings=[question_embedding],
-        n_results=top_k
+        n_results=min(top_k, collection.count())
     )
 
     documents = results.get("documents", [[]])[0]
@@ -184,6 +187,9 @@ def answer_with_rag(question: str) -> str:
     """
 
     chunks = search_documents(question, top_k=3)
+
+    if collection.count() == 0:
+        return "No documents have been indexed yet. Type 'upload' first."
 
     if not chunks:
         return "I could not find relevant information in the uploaded file."
